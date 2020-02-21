@@ -1,0 +1,59 @@
+<div class="card my-5">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item">
+       <a class="nav-link" routerLink="/save-Barang">Tambah Barang</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+       <li class="nav-item">
+        <button class="btn btn-primary" id="menu-toggle" (click)="downloadFile()">Download File</button>
+       </li>
+     </ul>
+ </nav>
+
+  <div class="card-body">
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id Barang</th>
+          <th scope="col">Nama Barang</th>
+          <th scope="col">Harga Satuan</th>
+          <th scope="col">Jenis Barang</th>
+          <!-- <th scope="col">Id Supplier</th> -->
+          <th scope="col">Nama Supplier</th>
+          <th scope="col">No Telp Supplier</th>
+          <th scope="col">Alamat Supplier</th>
+          <th scope="col">Stock Barang</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let barang of listBarang">
+          <td>{{ barang.idBarang }}</td>
+          <td>{{ barang.namaBarang }}</td>
+          <td>{{ barang.harga.hargaSatuan }}</td>
+          <td>{{ barang.tipeBarang.jenisBarang }}</td>
+          <!-- <td>{{ barang.supplier.idSupplier }}</td> -->
+          <td>{{ barang.supplier.namaSupplier }}</td>
+          <td>{{ barang.supplier.phoneNo }}</td>
+          <td>{{ barang.supplier.alamat }}</td>
+          <td>{{ barang.stockBarang }}</td>
+          <td>
+            <button class='btn btn-primary'
+            data-toggle="modal" data-target="#myModal">Update</button>&nbsp;
+
+            <button class='btn btn-secondary'>
+              <i class="fa fa-futboll-0">Delete</i>
+            </button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
