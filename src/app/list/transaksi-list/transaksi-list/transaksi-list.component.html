@@ -1,0 +1,55 @@
+<div class="card my-5">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item">
+       <a class="nav-link" routerLink="/save-Transaksi">Input Transaksi</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+       <li class="nav-item">
+        <button class="btn btn-primary" id="menu-toggle" (click)="downloadFile()">Download File</button>
+       </li>
+     </ul>
+ </nav>
+
+  <div class="card-body">
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id Transaksi</th>
+          <th scope="col">Nama Transaksi</th>
+          <th scope="col">Kode Transaksi</th>
+          <th scope="col">Grand Total</th>
+          <!-- <th scope="col">Id Supplier</th> -->
+          <th scope="col">Jumlah Bayar</th>
+          <th scope="col">Kembalian</th>
+          <th scope="col">Transaction Date</th>
+          <th scope="col">Transaction By</th>
+          <th scope="col">Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaksi of listTransaksi">
+          <td>{{ transaksi.idTransaksi }}</td>
+          <td>{{ transaksi.namaTransaksi }}</td>
+          <td>{{ transaksi.kodeTransaksi }}</td>
+          <td>{{ transaksi.grandTotal }}</td>
+          <!-- <td>{{ barang.supplier.idSupplier }}</td> -->
+          <td>{{ transaksi.jumlahBayar }}</td>
+          <td>{{ transaksi.kembalian }}</td>
+          <td>{{ transaksi.transactionDate }}</td>
+          <td>{{ transaksi.transactionBy }}</td>
+          <td>
+            <button class='btn btn-primary'
+            data-toggle="modal" data-target="#myModal" (click)="detailTransaksi(transaksi.idTransaksi)">Detail Transaksi</button>&nbsp;
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

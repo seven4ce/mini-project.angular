@@ -2,6 +2,7 @@ import { Injectable, Component } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Barang } from '../model/barang';
 import { Observable } from 'rxjs/internal/Observable';
+import { BaseURL } from './base-URL';
 
 @Injectable({
   providedIn: 'root'
@@ -11,27 +12,29 @@ export class BarangServiceService {
   private listBarangUrl: string;
   private saveBarangUrl: string;
   private downloadFileExcel: string;
+  private baseURL: string;
 
   constructor(private http: HttpClient) {
-    this.listBarangUrl = 'http://localhost:7000/api/barang/list/search?startDate=&endDate=';
-    this.saveBarangUrl = 'http://localhost:7000/api/barang/save';
-    this.downloadFileExcel = 'http://localhost:7000/api/download/barang/search?startDate=&endDate='
+    this.baseURL = BaseURL.baseUrl;
+    this.listBarangUrl = 'barang/list/search?startDate=&endDate=';
+    this.saveBarangUrl = 'barang/save';
+    this.downloadFileExcel = 'download/barang/search?startDate=&endDate='
   }
 
 
   public findAll(): Observable<Barang[]> {
-    return this.http.get<Barang[]>(this.listBarangUrl);
+    return this.http.get<Barang[]>(`${this.baseURL}${this.listBarangUrl}`);
   }
 
   public save(barang: Barang) {
-    return this.http.post<Barang>(this.saveBarangUrl, barang);
+    return this.http.post<Barang>(`${this.baseURL}${this.saveBarangUrl}`, barang);
   }
 
   public downloadFile(){
-		return this.http.get(this.downloadFileExcel);
+		return this.http.get(`${this.baseURL}${this.downloadFileExcel}`);
   }
   public downloadURL(){
-		return this.downloadFileExcel;
+		return `${this.baseURL}${this.downloadFileExcel}`;
   }
 
 
