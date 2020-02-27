@@ -1,10 +1,5 @@
 export class DetailTransaksi {
-
-  idTrxDetailidTrxDetail: number;
-  idBarang: number
-  namaBarang: string;
-  hargaSatuan: string;
+  idBarang: BigInteger
   jumlahBarang: number
   totalHarga: number
-  transactionDate:string;
 }

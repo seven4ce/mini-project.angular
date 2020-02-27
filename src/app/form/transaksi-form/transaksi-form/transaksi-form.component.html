@@ -67,14 +67,38 @@
     name="trxBy"
     required #trxBy="ngModel">
 </div>
-<!-- <div class="form-group">
-  <label for="trxDetails">Transaction Detail</label>
-  <input type="number" [(ngModel)]="trx.detailTransaksi[{{idBarang}}]"
-    class="form-control"
-    id="trxDetails"
-    name="trxDetails"
-    required #trxDetails="ngModel">
-</div> -->
+<div class="form-group">
+  <label>List Barang</label>
+  <ul>
+    <li *ngFor="let item of arrBarang">
+      {{item.namaBarang}}
+    </li>
+  </ul>
+</div>
+<div class="form-group">
+  <label for="trxDetails">Add Barang</label>
+  <div class="form-group">
+  <label for="sbarang">Barang</label>
+    <select type="text" [(ngModel)]="selectedBarang"
+      class="form-control"
+      id="sbarang"
+      name="sbarang"
+      required #sbarang="ngModel" data-toggle="tooltip"
+      data-placement="right">
+      <option value="null">--Select Transaction--</option>
+      <option [ngValue]="item" *ngFor="let item of listBarang">{{item.namaBarang}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="jmlBrg">Jumlah Barang</label>
+    <input type="number" [(ngModel)]="jumlahBarang"
+      class="form-control"
+      id="jmlBrg"
+      name="jmlBrg"
+      required #jmlBrg="ngModel">
+  </div>
+  <button class="btn btn-success" type="button" (click)="addBarang()">+ Barang</button>
+</div>
 <button type="submit" [disabled]="!transaksiForm.form.valid"
   class="btn btn-info">Save</button>&nbsp;
 
