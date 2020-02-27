@@ -20,8 +20,8 @@ export class SupplierServiceService {
 
   }
 
-  public findAll(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>(`${this.baseURL}${this.listSupplierUrl}`);
+  public findAll(): Observable<any> {
+    return this.http.get(`${this.baseURL}${this.listSupplierUrl}`);
   }
 
   public save(supplier: Supplier) {

@@ -20,8 +20,8 @@ export class TypeServiceService {
 
   }
 
-  public findAll(): Observable<TypeBarang[]> {
-    return this.http.get<TypeBarang[]>(`${this.baseURL}${this.listTypeUrl}`);
+  public findAll(): Observable<any> {
+    return this.http.get(`${this.baseURL}${this.listTypeUrl}`);
   }
 
   public save(type: TypeBarang) {

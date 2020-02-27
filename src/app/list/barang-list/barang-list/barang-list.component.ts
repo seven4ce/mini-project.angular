@@ -13,8 +13,8 @@ import { Observable } from 'rxjs';
 
 export class BarangListComponent implements OnInit {
 
-   data : any;
   listBarang: Observable<Barang[]>;
+  data : any;
 
   constructor(private barangService: BarangServiceService,
     private router: Router) {
@@ -28,7 +28,6 @@ export class BarangListComponent implements OnInit {
    ngOnInit() {
      this.dtOptions = {
        pageLength: 5,
-      //  stateSave:true,
        lengthMenu:[[5, 10, 25, 50, 75, 100, -1], [5, 10, 25, 50, 75, 100, "All"]],
        processing: true
      };

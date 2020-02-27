@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Transaksi } from 'src/app/model/transaksi';
 import { TransaksiServiceService } from 'src/app/service/transaksi-service.service';
 import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-transaksi-list',
@@ -10,21 +11,32 @@ import { Router } from '@angular/router';
 })
 export class TransaksiListComponent implements OnInit {
 
-  listTransaksi: Transaksi[];
+  listTransaksi: Observable<Transaksi[]>;
+  data : any;
 
   constructor(private trxService: TransaksiServiceService,
     private router: Router) { }
+
+
+    dtOptions: DataTables.Settings = {};
+    dtTrigger: Subject<any>= new Subject();
+
+    ngOnInit() {
+      this.dtOptions = {
+        pageLength: 5,
+        lengthMenu:[[5, 10, 25, 50, 75, 100, -1], [5, 10, 25, 50, 75, 100, "All"]],
+        processing: true
+      };
+      this.trxService.findAllTrx().subscribe(data => {
+        this.listTransaksi = data;
+      this.dtTrigger.next();
+      })
+    }
 
   public downloadFile(){
     this.trxService.downloadFileTrx().subscribe();
     var URL = this.trxService.downloadURLTrx();
     window.open(URL);
-  }
-
-  ngOnInit(): void {
-    this.trxService.findAllTrx().subscribe(data => {
-      this.listTransaksi = data;
-    });
   }
 
   detailTransaksi(id: number){

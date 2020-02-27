@@ -3,6 +3,7 @@ import { Transaksi } from 'src/app/model/transaksi';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TransaksiServiceService } from 'src/app/service/transaksi-service.service';
 import { DetailTransaksi } from 'src/app/model/detail-transaksi';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-transaksi-form',
@@ -12,7 +13,7 @@ import { DetailTransaksi } from 'src/app/model/detail-transaksi';
 export class TransaksiFormComponent implements OnInit {
 
   trx: Transaksi;
-  detailTransaksi: DetailTransaksi;
+  detailTransaksi: Observable<DetailTransaksi[]>;
 
   constructor(private route: ActivatedRoute,
     private router: Router,

@@ -20,8 +20,8 @@ export class HargaServiceService {
 
   }
 
-  public findAll(): Observable<Harga[]> {
-    return this.http.get<Harga[]>(`${this.baseURL}${this.listHargaUrl}`);
+  public findAll(): Observable<any> {
+    return this.http.get(`${this.baseURL}${this.listHargaUrl}`);
   }
 
   public save(harga: Harga) {

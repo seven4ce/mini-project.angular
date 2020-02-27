@@ -2,7 +2,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
             <ul class="navbar-nav mt-2 mt-lg-0">
                <li class="nav-item">
-                <a class="nav-link text-white" routerLink="/list-Barang">List Barang</a>
+                <a class="nav-link text-white " >Tambah Barang</a>
                </li>
              </ul>
          </nav>
@@ -15,9 +15,7 @@
           id="name"
           name="name"
           required #name="ngModel">
-          <!-- placeholder="Sahampo Clear 150ml" -->
       </div>
-      <!-- <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div> -->
       <div class="form-group">
         <label for="harga">Id Harga</label>
         <input type="number" [(ngModel)]="barang.idHarga"
@@ -51,7 +49,10 @@
           required #stockBarang="ngModel">
       </div>
       <button type="submit" [disabled]="!barangForm.form.valid"
-        class="btn btn-info">Save</button>
+        class="btn btn-info">Save</button>&nbsp;
+
+        <button
+        class="btn btn-success" routerLink="/list-Barang">Back</button>
     </form>
   </div>
 </div>

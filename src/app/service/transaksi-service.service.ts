@@ -23,8 +23,8 @@ export class TransaksiServiceService {
     this.urlTransksiDetail ='detail/transaksi/search?startDate=&endDate=&id=';
   }
 
-      public findAllTrx(): Observable<Transaksi[]> {
-        return this.http.get<Transaksi[]>(`${this.baseURL}${this.urlTransksiGet}`);
+      public findAllTrx(): Observable<any> {
+        return this.http.get(`${this.baseURL}${this.urlTransksiGet}`);
       }
      
       public saveTrx(trx: Transaksi) {

@@ -422,7 +422,7 @@ caption {
 	padding-top: .75rem;
 	padding-bottom: .75rem;
 	color: #6c757d;
-	text-align: left;
+	text-align: right;
 	caption-side: bottom
 }
 
@@ -6629,6 +6629,19 @@ button.bg-light:focus,
 button.bg-light:hover {
 	background-color: #dae0e5!important
 }
+
+
+.bg-white {
+	background-color: #fff!important
+}
+
+a.bg-white:focus,
+a.bg-white:hover,
+button.bg-white:focus,
+button.bg-white:hover {
+	background-color: #fff!important
+}
+
 
 .bg-dark {
 	background-color: #343a40!important

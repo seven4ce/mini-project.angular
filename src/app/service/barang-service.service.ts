@@ -23,16 +23,16 @@ export class BarangServiceService {
 	  this.getBarangUrl = 'barang/find?id='
   }
 
+  public save(barang: Barang) {
+    return this.http.post<Barang>(`${this.baseURL}${this.saveBarangUrl}`, barang);
+  }
+
   getEmployee(id: number): Observable<any> {
     return this.http.get(`${this.baseURL}${this.getBarangUrl}${id}`);
   }
 
   public findAll(): Observable<any> {
     return this.http.get(`${this.baseURL}${this.listBarangUrl}`);
-  }
-
-  public save(barang: Barang) {
-    return this.http.post<Barang>(`${this.baseURL}${this.saveBarangUrl}`, barang);
   }
 
   public downloadFile(){

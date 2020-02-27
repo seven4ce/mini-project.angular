@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
       <ul class="navbar-nav mt-2 mt-lg-0">
          <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/list-Supplier">List Supplier</a>
+          <a class="nav-link text-white" >Input Supplier</a>
          </li>
        </ul>
    </nav>
@@ -33,7 +33,10 @@
     required #idSupplier="ngModel">
 </div>
 <button type="submit" [disabled]="!supplierForm.form.valid"
-  class="btn btn-info">Save</button>
+  class="btn btn-info">Save</button>&nbsp;
+
+  <button
+  class="btn btn-success" routerLink="/list-Supplier">Back</button>
 </form>
 </div>
 </div>

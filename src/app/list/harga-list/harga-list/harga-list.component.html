@@ -1,17 +1,26 @@
-<div class="card my-5">
+<div class="card">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+  <nav class="navbar navbar-expand-lg bg-white text-black border-bottom">
 
     <ul class="navbar-nav mt-2 mt-lg-0">
       <li class="nav-item">
-       <a class="nav-link text-white" routerLink="/save-Harga">Input Harga</a>
+       <h2 class="text-black caption py-2">Daftar Harga</h2>
       </li>
     </ul>
+
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+       <li class="nav-item">
+        <button
+        class="btn btn-success" id="menu-toggle" routerLink="/save-Harga">Input Harga</button>
+       </li>
+     </ul>
  </nav>
 
   <div class="card-body">
 
-    <table class="table table-bordered table-striped">
+    <!-- <table class="table table-bordered table-striped"> -->
+      <table  class="table table-hover table-sm py-4" datatable [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Id Harga</th>
