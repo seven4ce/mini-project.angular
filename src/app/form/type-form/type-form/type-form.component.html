@@ -1,0 +1,31 @@
+<div class="card my-5">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+      <ul class="navbar-nav mt-2 mt-lg-0">
+         <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/list-TypeBarang">List Tipe Barang</a>
+         </li>
+       </ul>
+   </nav>
+<div class="card-body">
+<form (ngSubmit)="onSubmit()" #typeBarangForm="ngForm">
+<div class="form-group">
+  <label for="tipeBarang">Tipe Barang</label>
+  <input type="text" [(ngModel)]="typeBarang.tipeBarang"
+    class="form-control"
+    id="tipeBarang"
+    name="tipeBarang"
+    required #tipeBarang="ngModel">
+</div>
+<div class="form-group">
+  <label for="jenisBarang">Jenis Barang</label>
+  <input type="text" [(ngModel)]="typeBarang.jenisBarang"
+    class="form-control"
+    id="jenisBarang"
+    name="jenisBarang"
+    required #jenisBarang="ngModel">
+</div>
+<button type="submit" [disabled]="!typeBarangForm.form.valid"
+  class="btn btn-info">Save</button>
+</form>
+</div>
+</div>

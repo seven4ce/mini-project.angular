@@ -774,7 +774,7 @@ pre code {
 	padding-right: 15px;
 	padding-left: 15px;
 	margin-right: auto;
-	margin-left: auto
+  margin-left: auto;
 }
 
 /* @media (min-width:576px) {
@@ -6634,6 +6634,22 @@ button.bg-light:hover {
 	background-color: #343a40!important
 }
 
+.bg-img {
+  background-image: url('logo.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  /* background-size: 100%; */
+}
+
+.bg-img-text-black {
+  background-image: url('logo-text-black.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  /* background-size: 100%; */
+}
+
 a.bg-dark:focus,
 a.bg-dark:hover,
 button.bg-dark:focus,
@@ -8166,6 +8182,10 @@ button.bg-dark:hover {
 	padding-top: 3rem!important
 }
 
+.py-6 {
+	padding-top: 20rem!important
+}
+
 .pr-5,
 .px-5 {
 	padding-right: 3rem!important
@@ -8174,6 +8194,10 @@ button.bg-dark:hover {
 .pb-5,
 .py-5 {
 	padding-bottom: 3rem!important
+}
+
+.py-6 {
+	padding-bottom: 15rem!important
 }
 
 .pl-5,

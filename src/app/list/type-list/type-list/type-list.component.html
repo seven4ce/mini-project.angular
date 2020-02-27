@@ -1,0 +1,40 @@
+<div class="card my-5">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item">
+       <a class="nav-link text-white" routerLink="/save-TypeBarang">Input Tipe Barang</a>
+      </li>
+    </ul>
+ </nav>
+
+  <div class="card-body">
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id Type</th>
+          <th scope="col">Tipe Barang</th>
+          <th scope="col">Jenis Barang</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let typeBarang of listTypeBarang">
+          <td>{{ typeBarang.idType }}</td>
+          <td>{{ typeBarang.tipeBarang }}</td>
+          <td>{{ typeBarang.jenisBarang }}</td>
+          <td>
+            <button  class="btn btn-success" style="margin-left: 10px">Edit</button>&nbsp;
+
+            <button class='btn btn-danger'>
+              <i class="fa fa-futboll-0">Delete</i>
+            </button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

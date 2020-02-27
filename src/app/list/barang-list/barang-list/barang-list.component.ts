@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Barang } from 'src/app/model/barang';
 import { BarangServiceService } from 'src/app/service/barang-service.service';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs/internal/Subject';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-barang-list',
@@ -10,12 +13,31 @@ import { BarangServiceService } from 'src/app/service/barang-service.service';
 
 export class BarangListComponent implements OnInit {
 
-  listBarang: Barang[];
-  data : any;
+   data : any;
+  listBarang: Observable<Barang[]>;
 
-  constructor(private barangService: BarangServiceService) {
+  constructor(private barangService: BarangServiceService,
+    private router: Router) {
 
    }
+
+
+   dtOptions: DataTables.Settings = {};
+   dtTrigger: Subject<any>= new Subject();
+
+   ngOnInit() {
+     this.dtOptions = {
+       pageLength: 5,
+      //  stateSave:true,
+       lengthMenu:[[5, 10, 25, 50, 75, 100, -1], [5, 10, 25, 50, 75, 100, "All"]],
+       processing: true
+     };
+     this.barangService.findAll().subscribe(data => {
+     this.listBarang = data;
+     this.dtTrigger.next();
+     })
+   }
+
 
    public downloadFile(){
       this.barangService.downloadFile().subscribe();
@@ -23,20 +45,9 @@ export class BarangListComponent implements OnInit {
       window.open(URL);
     }
 
-
-
-  ngOnInit(): void {
-    this.barangService.findAll().subscribe(data => {
-      this.listBarang = data;
-    });
-
-   }
-
-
-
-
-
-
+    updateBarang(id: number){
+      this.router.navigate(['update-Barang', id]);
+    }
 
 
 }

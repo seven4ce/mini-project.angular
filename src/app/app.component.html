@@ -2,19 +2,20 @@
 
 	<!-- Sidebar -->
 	<div class="bg-dark border-right" id="sidebar-wrapper">
-    <!-- <div class="sidebar-heading">
-      <img src="app/assets/img/logo.png">
-    </div> -->
 		<div class="sidebar-heading">
-      			<h2 class="list-inline caption text-white py-3">{{ title }}</h2>
+            <h2 class="py-5 bg-img"></h2>
+            <h2 class="list-inline caption text-white py-3">{{ title }}</h2>
 		</div>
 		<div class="list-group list-group-flush">
       <a routerLink="/list-Barang" class="list-group-item list-group-item-action text-white bg-dark">Barang</a>
-      <a routerLink="/save-Barang" class="list-group-item list-group-item-action text-white bg-dark">Harga</a>
-      <a routerLink="/list-Barang" class="list-group-item list-group-item-action text-white bg-dark">Type Barang</a>
-      <a routerLink="/save-Barang" class="list-group-item list-group-item-action text-white bg-dark">Supplier</a>
+      <a routerLink="/list-Harga" class="list-group-item list-group-item-action text-white bg-dark">Harga</a>
+      <a routerLink="/list-TypeBarang" class="list-group-item list-group-item-action text-white bg-dark">Type Barang</a>
+      <a routerLink="/list-Supplier" class="list-group-item list-group-item-action text-white bg-dark">Supplier</a>
       <a routerLink="/list-Transaksi" class="list-group-item list-group-item-action text-white bg-dark">Transaksi</a>
-		</div>
+
+    </div>
+
+
 	</div>
   <!-- /#sidebar-wrapper -->
 
@@ -25,29 +26,32 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
           </button> -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      Account
-                </a> -->
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
 
+
+            <ul class="navbar-nav mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      Account
+                </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Sign Out</a>
                 </div>
               </li>
+
             </ul>
           </div>
         </nav>
-        <div class="container">
+        <!-- <div class="container"> -->
+          <div id="page-content-wrapper">
           <router-outlet></router-outlet>
+        <!-- </div> -->
         </div>
       </div>
 
