@@ -18,8 +18,10 @@ export class TransaksiFormComponent implements OnInit {
   detailTransaksi: Observable<DetailTransaksi[]>;
   listBarang: Observable<Barang[]>;
   selectedBarang: any;
-  jumlahBarang: number = 0;
+  jumlahBarang: number = 1;
+  totalBayar: number = 0;
   arrBarang: any[] = [];
+  totalHarga: number = 0;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -27,7 +29,9 @@ export class TransaksiFormComponent implements OnInit {
       private trxService: TransaksiServiceService) {
         this.trx = new Transaksi();
         this.trx.detailTransaksi = [];
+        this.trx.grandTotal = 0;
         this.trx.jumlahBayar = 0;
+        this.trx.kembalian = 0;
        }
 
        onSubmitTrx() {
@@ -45,15 +49,21 @@ export class TransaksiFormComponent implements OnInit {
   }
 
   addBarang () {
-    let totalHarga = this.jumlahBarang * this.selectedBarang.idHarga
+    let totalBayar = this.jumlahBarang * this.selectedBarang.harga.hargaSatuan
     let barang = {
       idBarang: this.selectedBarang.idBarang,
       jumlahBarang: this.jumlahBarang,
-      totalHarga: totalHarga
+      totalHarga: totalBayar
     }
 
-    this.trx.jumlahBayar += totalHarga
+    this.trx.grandTotal += totalBayar
+    this.trx.kembalian = this.trx.jumlahBayar - this.trx.grandTotal
     this.arrBarang.push(this.selectedBarang)
     this.trx.detailTransaksi.push(barang)
   }
+
+  hitung(){
+    this.trx.kembalian = this.trx.jumlahBayar - this.trx.grandTotal
+  }
+
 }

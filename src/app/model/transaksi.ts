@@ -4,9 +4,9 @@ export class Transaksi {
   idTransaksi: string;
   namaTransaksi: string;
   kodeTransaksi: string;
-  grandTotal: string;
+  grandTotal: number;
   jumlahBayar: number;
-  kembalian: string;
+  kembalian: number;
   transactionDate: string;
   transactionBy: string;
   detailTransaksi: DetailTransaksi[];
