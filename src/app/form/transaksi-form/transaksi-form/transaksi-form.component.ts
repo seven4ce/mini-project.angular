@@ -27,6 +27,7 @@ export class TransaksiFormComponent implements OnInit {
       private trxService: TransaksiServiceService) {
         this.trx = new Transaksi();
         this.trx.detailTransaksi = [];
+        this.trx.jumlahBayar = 0;
        }
 
        onSubmitTrx() {
@@ -44,11 +45,14 @@ export class TransaksiFormComponent implements OnInit {
   }
 
   addBarang () {
+    let totalHarga = this.jumlahBarang * this.selectedBarang.idHarga
     let barang = {
       idBarang: this.selectedBarang.idBarang,
       jumlahBarang: this.jumlahBarang,
-      totalHarga: this.selectedBarang.idHarga
+      totalHarga: totalHarga
     }
+
+    this.trx.jumlahBayar += totalHarga
     this.arrBarang.push(this.selectedBarang)
     this.trx.detailTransaksi.push(barang)
   }

@@ -5,7 +5,7 @@ export class Transaksi {
   namaTransaksi: string;
   kodeTransaksi: string;
   grandTotal: string;
-  jumlahBayar: string;
+  jumlahBayar: number;
   kembalian: string;
   transactionDate: string;
   transactionBy: string;
