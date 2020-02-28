@@ -12,12 +12,24 @@ export class HargaServiceService {
   private baseURL: string;
   private listHargaUrl: string;
   private saveHargaUrl: string;
+  private getHargaUrl: string;
+  private deleteHargaUrl: string;
 
   constructor(private http: HttpClient) {
     this.baseURL = BaseURL.baseUrl;
     this.listHargaUrl = 'harga/all';
     this.saveHargaUrl = 'harga/save';
+    this.getHargaUrl = 'harga/find?id=';
+    this.deleteHargaUrl ='harga/delete/';
 
+  }
+
+  public deleteHarga(id: number): Observable<any> {
+    return this.http.post(`${this.baseURL}${this.deleteHargaUrl}${id}`, {});
+  }
+
+  public getHarga(id: number): Observable<any> {
+    return this.http.get(`${this.baseURL}${this.getHargaUrl}${id}`);
   }
 
   public findAll(): Observable<any> {

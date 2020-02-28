@@ -12,12 +12,24 @@ export class TypeServiceService {
   private baseURL: string;
   private listTypeUrl: string;
   private saveTypeUrl: string;
+  private getTypeUrl: string;
+  private deleteTypeUrl: string;
 
   constructor(private http: HttpClient) {
     this.baseURL = BaseURL.baseUrl;
     this.listTypeUrl = 'type-barang/all';
     this.saveTypeUrl = 'type-barang/save';
+    this.getTypeUrl = 'type-barang/find?id=';
+    this.deleteTypeUrl = 'type-barang/delete/';
 
+  }
+
+  public deleteType(id: number): Observable<any> {
+    return this.http.post(`${this.baseURL}${this.deleteTypeUrl}${id}`, {});
+  }
+
+  public getType(id: number): Observable<any> {
+    return this.http.get(`${this.baseURL}${this.getTypeUrl}${id}`);
   }
 
   public findAll(): Observable<any> {

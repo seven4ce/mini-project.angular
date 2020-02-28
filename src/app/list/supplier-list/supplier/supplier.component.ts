@@ -14,6 +14,7 @@ export class SupplierComponent implements OnInit {
 
   listSupplier: Observable<Supplier[]>;
   data : any;
+  deleteMessage=false;
 
   constructor(private supplierService: SupplierServiceService,
     private router: Router) { }
@@ -31,6 +32,23 @@ export class SupplierComponent implements OnInit {
         this.listSupplier = data;
       this.dtTrigger.next();
       })
+    }
+
+    editSupplier(id: number){
+      this.router.navigate(['edit-Supplier', id]);
+    }
+
+    deleteSupplier(id: number){
+      this.supplierService.deleteSupplier(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.deleteMessage=true;
+            this.supplierService.findAll().subscribe(data =>{
+              this.listSupplier =data
+              })
+          },
+          error => console.log(error));
     }
 
 

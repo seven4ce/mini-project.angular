@@ -15,6 +15,7 @@ export class BarangListComponent implements OnInit {
 
   listBarang: Observable<Barang[]>;
   data : any;
+  deleteMessage=false;
 
   constructor(private barangService: BarangServiceService,
     private router: Router) {
@@ -46,6 +47,19 @@ export class BarangListComponent implements OnInit {
 
     updateBarang(id: number){
       this.router.navigate(['update-Barang', id]);
+    }
+
+    deleteBarang(id: number){
+      this.barangService.deleteBarang(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.deleteMessage=true;
+            this.barangService.findAll().subscribe(data =>{
+              this.listBarang =data
+              })
+          },
+          error => console.log(error));
     }
 
 

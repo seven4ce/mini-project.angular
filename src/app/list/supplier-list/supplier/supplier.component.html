@@ -37,9 +37,9 @@
           <td>{{ supplier.phoneNo }}</td>
           <td>{{ supplier.alamat }}</td>
           <td>
-            <button  class="btn btn-success" style="margin-left: 10px">Edit</button>&nbsp;
+            <button (click)="editSupplier(supplier.idSupplier)"  class="btn btn-success" style="margin-left: 10px">Edit</button>&nbsp;
 
-            <button class='btn btn-danger'>
+            <button (click)="deleteSupplier(supplier.idSupplier)" class='btn btn-danger'>
               <i class="fa fa-futboll-0">Delete</i>
             </button>
 

@@ -35,9 +35,9 @@
           <td>{{ typeBarang.tipeBarang }}</td>
           <td>{{ typeBarang.jenisBarang }}</td>
           <td>
-            <button  class="btn btn-success" style="margin-left: 10px">Edit</button>&nbsp;
+            <button (click)="editType(typeBarang.idType)" class="btn btn-success" style="margin-left: 10px">Edit</button>&nbsp;
 
-            <button class='btn btn-danger'>
+            <button (click)="deleteType(typeBarang.idType)" class='btn btn-danger'>
               <i class="fa fa-futboll-0">Delete</i>
             </button>
 

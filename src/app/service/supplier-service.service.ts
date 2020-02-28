@@ -12,12 +12,24 @@ export class SupplierServiceService {
   private baseURL: string;
   private listSupplierUrl: string;
   private saveSupplierUrl: string;
+  private getSupplierUrl: string;
+  private deleteSupplierUrl: string;
 
   constructor(private http: HttpClient) {
     this.baseURL = BaseURL.baseUrl;
     this.listSupplierUrl = 'supplier/all';
     this.saveSupplierUrl = 'supplier/save';
+    this.getSupplierUrl = 'supplier/find?id=';
+    this.deleteSupplierUrl = 'supplier/delete/';
 
+  }
+
+  public deleteSupplier(id: number): Observable<any> {
+    return this.http.post(`${this.baseURL}${this.deleteSupplierUrl}${id}`, {});
+  }
+
+  public getSupplier(id: number): Observable<any> {
+    return this.http.get(`${this.baseURL}${this.getSupplierUrl}${id}`);
   }
 
   public findAll(): Observable<any> {

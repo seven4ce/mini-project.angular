@@ -34,7 +34,6 @@ export class UpdateBarangComponent implements OnInit {
       private supplierservice: SupplierServiceService,
       private barangService: BarangServiceService) {
     this.barang = new Barang();
-
   }
 
   ngOnInit() {
@@ -81,5 +80,7 @@ export class UpdateBarangComponent implements OnInit {
   gotoListBarang() {
     this.router.navigate(['/list-Barang']);
   }
+
+
 
 }

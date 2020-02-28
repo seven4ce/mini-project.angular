@@ -13,6 +13,7 @@ export class BarangServiceService {
   private saveBarangUrl: string;
   private downloadFileExcel: string;
   private getBarangUrl: string;
+  private deleteBarangUrl: string;
   private baseURL: string;
 
   constructor(private http: HttpClient) {
@@ -20,7 +21,12 @@ export class BarangServiceService {
     this.listBarangUrl = 'barang/list/search?startDate=&endDate=';
     this.saveBarangUrl = 'barang/save';
     this.downloadFileExcel = 'download/barang/search?startDate=&endDate='
-	  this.getBarangUrl = 'barang/find?id='
+    this.getBarangUrl = 'barang/find?id='
+    this.deleteBarangUrl = 'barang/delete/'
+  }
+
+  public deleteBarang(id: number): Observable<any> {
+    return this.http.post(`${this.baseURL}${this.deleteBarangUrl}${id}`, {});
   }
 
   public save(barang: Barang) {

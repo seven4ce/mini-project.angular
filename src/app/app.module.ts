@@ -10,7 +10,6 @@ import { BarangFormComponent } from './form/barang-form/barang-form/barang-form.
 import { TransaksiListComponent } from './list/transaksi-list/transaksi-list/transaksi-list.component';
 import { TransaksiFormComponent } from './form/transaksi-form/transaksi-form/transaksi-form.component';
 import { DetailTransaksiListComponent } from './list/detail-transaksi/detail-transaksi-list/detail-transaksi-list.component';
-import { UpdateBarangComponent } from './form/update-barang/update-barang.component';
 import { SupplierComponent } from './list/supplier-list/supplier/supplier.component';
 import { SupplierFormComponent } from './form/supplier-form/supplier-form/supplier-form.component';
 import { HargaFormComponent } from './form/harga-form/harga-form/harga-form.component';
@@ -19,6 +18,10 @@ import { TypeFormComponent } from './form/type-form/type-form/type-form.componen
 import { TypeListComponent } from './list/type-list/type-list/type-list.component';
 import { HomeComponent } from './home/home/home.component';
 import { DataTablesModule } from 'angular-datatables';
+import { UpdateBarangComponent } from './form/Update-Edit/update-barang/update-barang.component';
+import { EditHargaComponent } from './form/Update-Edit/edit-harga/edit-harga.component';
+import { EditTypeComponent } from './form/Update-Edit/edit-type/edit-type.component';
+import { EditSupplierComponent } from './form/Update-Edit/edit-supplier/edit-supplier.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { DataTablesModule } from 'angular-datatables';
     HargaListComponent,
     TypeFormComponent,
     TypeListComponent,
-    HomeComponent
+    HomeComponent,
+    EditHargaComponent,
+    EditTypeComponent,
+    EditSupplierComponent
   ],
   imports: [
     BrowserModule,

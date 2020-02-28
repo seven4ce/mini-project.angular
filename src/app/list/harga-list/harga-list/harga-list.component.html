@@ -35,9 +35,9 @@
           <td>{{ harga.hargaSatuan }}</td>
           <td>{{ harga.discount }} %</td>
           <td>
-            <button  class="btn btn-success" style="margin-left: 10px">Edit</button>&nbsp;
+            <button (click)="editHarga(harga.idHarga)" class="btn btn-success" style="margin-left: 10px">Edit</button>&nbsp;
 
-            <button class='btn btn-danger'>
+            <button  (click)="deleteHarga(harga.idHarga)" class="btn btn-danger">
               <i class="fa fa-futboll-0">Delete</i>
             </button>
 

@@ -10,6 +10,7 @@ import { HargaServiceService } from 'src/app/service/harga-service.service';
 })
 export class HargaFormComponent implements OnInit {
 
+  id: number;
   harga : Harga;
 
   constructor(
@@ -29,5 +30,7 @@ export class HargaFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
 }

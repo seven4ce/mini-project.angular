@@ -13,6 +13,7 @@ export class HargaListComponent implements OnInit {
 
   listHarga: Observable<Harga[]>;
   data : any;
+  deleteMessage=false;
 
   constructor(private hargaService: HargaServiceService,
     private router: Router) { }
@@ -32,6 +33,22 @@ export class HargaListComponent implements OnInit {
       })
     }
 
+    editHarga(id: number){
+      this.router.navigate(['edit-Harga', id]);
+    }
+
+    deleteHarga(id: number){
+      this.hargaService.deleteHarga(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.deleteMessage=true;
+            this.hargaService.findAll().subscribe(data =>{
+              this.listHarga =data
+              })
+          },
+          error => console.log(error));
+    }
 
 
 }

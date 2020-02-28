@@ -13,6 +13,7 @@ export class TypeListComponent implements OnInit {
 
   listTypeBarang: Observable<TypeBarang[]>;
   data : any;
+  deleteMessage=false;
 
   constructor(private typeService: TypeServiceService,
     private router: Router) { }
@@ -30,6 +31,23 @@ export class TypeListComponent implements OnInit {
         this.listTypeBarang = data;
       this.dtTrigger.next();
       })
+    }
+
+    editType(id: number){
+      this.router.navigate(['edit-Type', id]);
+    }
+
+    deleteType(id: number){
+      this.typeService.deleteType(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.deleteMessage=true;
+            this.typeService.findAll().subscribe(data =>{
+              this.listTypeBarang =data
+              })
+          },
+          error => console.log(error));
     }
 
 
