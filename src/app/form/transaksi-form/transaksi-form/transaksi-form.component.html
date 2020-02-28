@@ -1,117 +1,64 @@
 <div class="card my-5">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
-      <ul class="navbar-nav mt-2 mt-lg-0">
-         <li class="nav-item">
-          <a class="nav-link text-white" >Input Transaksi</a>
-         </li>
-       </ul>
-   </nav>
-<div class="card-body">
-<form (ngSubmit)="onSubmitTrx()" #transaksiForm="ngForm">
-<div class="form-group">
-  <label for="name">Nama Transaksi</label>
-  <input type="text" [(ngModel)]="trx.namaTransaksi"
-    class="form-control"
-    id="name"
-    name="name"
-    required #name="ngModel">
-    <!-- placeholder="Sahampo Clear 150ml" -->
-</div>
-
-
-<!-- <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div> -->
-<div class="form-group">
-  <label for="kode">Kode Transaksi</label>
-    <select type="text" [(ngModel)]="trx.kodeTransaksi"
-          class="form-control"
-          id="kode"
-          name="kode"
-          required #kode="ngModel" data-toggle="tooltip"
-          data-placement="right">
-          <option value="null">--Select Transaction--</option>
-          <option value="TRX-IN">TRX-IN</option>
-          <option value="TRX-OUT">TRX-OUT</option>
-    </select>
-</div>
-
-<div class="form-group">
-
-  <ul class="navbar-nav mt-2 mt-lg-0">
-    <a class="nav-link text-black" >List Barang</a>
-    <li class="nav-item" *ngFor="let item of arrBarang">
-      {{item.namaBarang}} --- Rp. {{item.harga.hargaSatuan}} ,-
-    </li>
-  </ul>
-
-</div>
-
-
-<div class="form-group">
-  <label for="trxDetails"></label>
-  <div class="form-group">
-
-  <label for="sbarang">Barang</label>
-    <select type="text" [(ngModel)]="selectedBarang"
-      class="form-control"
-      id="sbarang"
-      name="sbarang"
-      required #sbarang="ngModel" data-toggle="tooltip"
-      data-placement="right">
-      <option value="null">--Select Transaction--</option>
-      <option [ngValue]="item" *ngFor="let item of listBarang">{{item.namaBarang}}</option>
-    </select>
-
-  </div>
-  <div class="form-group">
-    <label for="jmlBrg">Jumlah Barang</label>
-    <input type="number" [(ngModel)]="jumlahBarang"
-      class="form-control"
-      id="jmlBrg"
-      name="jmlBrg"
-      required #jmlBrg="ngModel">
-  </div>
-  <button class="btn btn-success" type="button" (click)="addBarang()">Tambahkan Barang</button>
-</div>
-
-
-<div class="form-group">
-  <label for="total">Grand Total</label>
-  <input type="number" [(ngModel)]="trx.grandTotal"
-    class="form-control"
-    id="total"
-    name="total"
-    required #total="ngModel">
-</div>
-<div class="form-group">
-  <label for="jumlah">Jumlah Bayar</label>
-  <input type="number" (click)="hitung()" [(ngModel)]="trx.jumlahBayar"
-    class="form-control"
-    id="jumlah"
-    name="jumlah"
-    required #jumlah="ngModel">
-</div>
-<div class="form-group">
-  <label for="kembalian">Kembalian</label>
-  <input type="number" (click)="hitung()" [(ngModel)]="trx.kembalian"
-    class="form-control"
-    id="kembalian"
-    name="kembalian"
-    required #kembalian="ngModel">
-</div>
-
-<div class="form-group">
-  <label for="trxBy">Transaction By</label>
-  <input type="text" (click)="hitung()" [(ngModel)]="trx.transactionBy"
-    class="form-control"
-    id="trxBy"
-    name="trxBy"
-    required #trxBy="ngModel">
-</div>
-<button type="submit" [disabled]="!transaksiForm.form.valid"
-  class="btn btn-info">Save</button>&nbsp;
-
-  <button
-  class="btn btn-success" routerLink="/list-Transaksi">Back</button>
-</form>
-</div>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			<li class="nav-item"> <a class="nav-link text-white">Input Transaksi</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="card-body">
+		<form (ngSubmit)="onSubmitTrx()" #transaksiForm="ngForm">
+			<div class="form-group">
+				<label for="name">Nama Transaksi</label>
+				<input type="text" [(ngModel)]="trx.namaTransaksi" class="form-control" id="name" name="name" required #name="ngModel">
+				<!-- placeholder="Sahampo Clear 150ml" -->
+			</div>
+			<!-- <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div> -->
+			<div class="form-group">
+				<label for="kode">Kode Transaksi</label>
+				<select type="text" [(ngModel)]="trx.kodeTransaksi" class="form-control" id="kode" name="kode" required #kode="ngModel" data-toggle="tooltip" data-placement="right">
+					<option value="null">--Select Transaction--</option>
+					<option value="TRX-IN">TRX-IN</option>
+					<option value="TRX-OUT">TRX-OUT</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<ul class="navbar-nav mt-2 mt-lg-0"> <a class="nav-link text-black">List Barang</a>
+					<li class="nav-item" *ngFor="let item of arrBarang">{{item.namaBarang}} --- Rp. {{item.harga.hargaSatuan}} ,-</li>
+				</ul>
+			</div>
+			<div class="form-group">
+				<label for="trxDetails"></label>
+				<div class="form-group">
+					<label for="sbarang">Barang</label>
+					<select type="text" [(ngModel)]="selectedBarang" class="form-control" id="sbarang" name="sbarang" required #sbarang="ngModel" data-toggle="tooltip" data-placement="right">
+						<option value="null">--Select Transaction--</option>
+						<option [ngValue]="item" *ngFor="let item of listBarang">{{item.namaBarang}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="jmlBrg">Jumlah Barang</label>
+					<input type="number" [(ngModel)]="jumlahBarang" class="form-control" id="jmlBrg" name="jmlBrg" required #jmlBrg="ngModel">
+				</div>
+				<button class="btn btn-success" type="button" (click)="addBarang()">Tambahkan Barang</button>
+			</div>
+			<div class="form-group">
+				<label for="total">Grand Total</label>
+				<input type="number" [(ngModel)]="trx.grandTotal" class="form-control" id="total" name="total" required #total="ngModel">
+			</div>
+			<div class="form-group">
+				<label for="jumlah">Jumlah Bayar</label>
+				<input type="number" (click)="hitung()" [(ngModel)]="trx.jumlahBayar" class="form-control" id="jumlah" name="jumlah" required #jumlah="ngModel">
+			</div>
+			<div class="form-group">
+				<label for="kembalian">Kembalian</label>
+				<input type="number" (click)="hitung()" [(ngModel)]="trx.kembalian" class="form-control" id="kembalian" name="kembalian" required #kembalian="ngModel">
+			</div>
+			<div class="form-group">
+				<label for="trxBy">Transaction By</label>
+				<input type="text" (click)="hitung()" [(ngModel)]="trx.transactionBy" class="form-control" id="trxBy" name="trxBy" required #trxBy="ngModel">
+			</div>
+			<button type="submit" [disabled]="!transaksiForm.form.valid" class="btn btn-info">Save</button>&nbsp;
+			<button class="btn btn-success" routerLink="/list-Transaksi">Back</button>
+		</form>
+	</div>
 </div>
