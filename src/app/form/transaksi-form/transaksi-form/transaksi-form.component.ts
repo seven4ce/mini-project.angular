@@ -26,7 +26,7 @@ export class TransaksiFormComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private barangService: BarangServiceService,
-      private trxService: TransaksiServiceService) {
+    private trxService: TransaksiServiceService) {
         this.trx = new Transaksi();
         this.trx.detailTransaksi = [];
         this.trx.grandTotal = 0;

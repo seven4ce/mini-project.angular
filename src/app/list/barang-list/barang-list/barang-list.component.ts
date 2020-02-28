@@ -27,8 +27,8 @@ export class BarangListComponent implements OnInit {
 
    ngOnInit() {
      this.dtOptions = {
-       pageLength: 5,
-       lengthMenu:[[5, 10, 25, 50, 75, 100, -1], [5, 10, 25, 50, 75, 100, "All"]],
+       pageLength: 7,
+       lengthMenu:[[7, 10, 25, 50, 75, 100, -1], [7, 10, 25, 50, 75, 100, "All"]],
        processing: true
      };
      this.barangService.findAll().subscribe(data => {

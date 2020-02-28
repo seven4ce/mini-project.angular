@@ -27,7 +27,7 @@ export class BarangServiceService {
     return this.http.post<Barang>(`${this.baseURL}${this.saveBarangUrl}`, barang);
   }
 
-  getEmployee(id: number): Observable<any> {
+  getBarang(id: number): Observable<any> {
     return this.http.get(`${this.baseURL}${this.getBarangUrl}${id}`);
   }
 

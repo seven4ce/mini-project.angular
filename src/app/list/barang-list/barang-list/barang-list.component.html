@@ -29,10 +29,7 @@
           <th scope="col">Nama Barang</th>
           <th scope="col">Harga Satuan</th>
           <th scope="col">Jenis Barang</th>
-          <!-- <th scope="col">Id Supplier</th> -->
           <th scope="col">Nama Supplier</th>
-          <!-- <th scope="col">No Telp Supplier</th>
-          <th scope="col">Alamat Supplier</th> -->
           <th scope="col">Stock Barang</th>
           <th scope="col">Action</th>
         </tr>
@@ -43,10 +40,7 @@
           <td>{{ barang.namaBarang }}</td>
           <td>{{ barang.harga.hargaSatuan }}</td>
           <td>{{ barang.tipeBarang.jenisBarang }}</td>
-          <!-- <td>{{ barang.supplier.idSupplier }}</td> -->
-          <!-- <td>{{ barang.supplier.namaSupplier }}</td>
-          <td>{{ barang.supplier.phoneNo }}</td> -->
-          <td>{{ barang.supplier.alamat }}</td>
+          <td>{{ barang.supplier.namaSupplier }}</td>
           <td>{{ barang.stockBarang }}</td>
           <td>
             <button (click)="updateBarang(barang.idBarang)" class="btn btn-success" style="margin-left: 10px">Edit</button>&nbsp;

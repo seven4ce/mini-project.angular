@@ -23,28 +23,40 @@
     required #name="ngModel">
 </div>
 <div class="form-group">
-  <label for="harga">Id Harga</label>
-  <input type="number" [(ngModel)]="barang.idHarga"
-    class="form-control"
-    id="harga"
+  <label for="harga">Harga Satuan</label>
+    <select type="text" [(ngModel)]="selectedHarga"
+    class="form-control" id="harga"
     name="harga"
-    required #harga="ngModel">
+    required #harga="ngModel"
+    data-toggle="tooltip"
+    data-placement="right">
+      <option value="null">--Select Harga--</option>
+      <option [ngValue]="item" *ngFor="let item of listHarga" >{{item.hargaSatuan}}</option>
+    </select>
 </div>
 <div class="form-group">
-  <label for="idType">Id Type</label>
-  <input type="number" [(ngModel)]="barang.idType"
-    class="form-control"
-    id="idType"
+  <label for="idType">Tipe Barang</label>
+    <select type="text" [(ngModel)]="selectedType"
+    class="form-control" id="idType"
     name="idType"
-    required #idSupplier="ngModel">
+    required #idType="ngModel"
+    data-toggle="tooltip"
+    data-placement="right">
+      <option value="null">--Select Jenis Barang--</option>
+      <option [ngValue]="item" *ngFor="let item of listTypeBarang" >{{item.tipeBarang}} -- {{item.jenisBarang}}</option>
+    </select>
 </div>
 <div class="form-group">
-  <label for="idSupplier">Id Supplier</label>
-  <input type="number" [(ngModel)]="barang.idSupplier"
-    class="form-control"
-    id="idSupplier"
-    name="idSupplier"
-    required #idSupplier="ngModel">
+  <label for="idSupplier">Supplier</label>
+    <select type="text" [(ngModel)]="selectedSupplier"
+          class="form-control" id="idSupplier"
+          name="idSupplier"
+          required #idSupplier="ngModel"
+          data-toggle="tooltip"
+          data-placement="right">
+						<option value="null">--Select Supplier--</option>
+						<option [ngValue]="item" *ngFor="let item of listSupplier" >{{item.namaSupplier}}</option>
+		</select>
 </div>
 <div class="form-group">
   <label for="stockBarang">stockBarang</label>
@@ -55,7 +67,7 @@
     required #stockBarang="ngModel">
 </div>
 <button type="submit" [disabled]="!barangForm.form.valid"
-class="btn btn-success">Update</button>&nbsp;
+class="btn btn-success" (click)="addObjectItem()" >Update</button>&nbsp;
 
 <button
 class="btn btn-success" routerLink="/list-Barang">Back</button>
