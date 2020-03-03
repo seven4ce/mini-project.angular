@@ -40,7 +40,7 @@ export class AppComponent {
   logout() {
     this.tokenStorageService.signOut();
     // window.location.reload();
-     window.location.href='/Home'
+    window.location.href='/Home'
   }
 
 
