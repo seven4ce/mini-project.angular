@@ -6,6 +6,7 @@ import { BarangServiceService } from 'src/app/service/barang-service.service';
 import { DetailTransaksi } from 'src/app/model/detail-transaksi';
 import { Observable } from 'rxjs';
 import { Barang } from 'src/app/model/barang';
+import { TokenStorageService } from 'src/app/service/token-storage.service';
 
 @Component({
   selector: 'app-transaksi-form',
@@ -22,11 +23,13 @@ export class TransaksiFormComponent implements OnInit {
   totalBayar: number = 0;
   arrBarang: any[] = [];
   totalHarga: number = 0;
+  trxBy: string;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private barangService: BarangServiceService,
-    private trxService: TransaksiServiceService) {
+    private trxService: TransaksiServiceService,
+    private users: TokenStorageService) {
         this.trx = new Transaksi();
         this.trx.detailTransaksi = [];
         this.trx.grandTotal = 0;
@@ -64,6 +67,12 @@ export class TransaksiFormComponent implements OnInit {
 
   hitung(){
     this.trx.kembalian = this.trx.jumlahBayar - this.trx.grandTotal
+  }
+
+  user(){
+    const user = this.users.getUser()
+    this.trxBy = user.username;
+    this.trx.transactionBy = this.trxBy;
   }
 
 }

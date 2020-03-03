@@ -51,13 +51,15 @@
 			</div>
 			<div class="form-group">
 				<label for="kembalian">Kembalian</label>
-				<input type="number" (click)="hitung()" [(ngModel)]="trx.kembalian" class="form-control" id="kembalian" name="kembalian" required #kembalian="ngModel">
+        <input type="number"
+        (click)="hitung()"
+        [(ngModel)]="trx.kembalian"
+        class="form-control"
+        id="kembalian"
+        name="kembalian"
+        required #kembalian="ngModel">
 			</div>
-			<div class="form-group">
-				<label for="trxBy">Transaction By</label>
-				<input type="text" (click)="hitung()" [(ngModel)]="trx.transactionBy" class="form-control" id="trxBy" name="trxBy" required #trxBy="ngModel">
-			</div>
-			<button type="submit" [disabled]="!transaksiForm.form.valid" class="btn btn-info">Save</button>&nbsp;
+			<button type="submit" [disabled]="!transaksiForm.form.valid" class="btn btn-info" (click)="user()">Save</button>&nbsp;
 			<button class="btn btn-success" routerLink="/list-Transaksi">Back</button>
 		</form>
 	</div>

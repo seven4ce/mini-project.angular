@@ -22,6 +22,9 @@ import { UpdateBarangComponent } from './form/Update-Edit/update-barang/update-b
 import { EditHargaComponent } from './form/Update-Edit/edit-harga/edit-harga.component';
 import { EditTypeComponent } from './form/Update-Edit/edit-type/edit-type.component';
 import { EditSupplierComponent } from './form/Update-Edit/edit-supplier/edit-supplier.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { authInterceptorProviders } from './service/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ import { EditSupplierComponent } from './form/Update-Edit/edit-supplier/edit-sup
     HomeComponent,
     EditHargaComponent,
     EditTypeComponent,
-    EditSupplierComponent
+    EditSupplierComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,7 @@ import { EditSupplierComponent } from './form/Update-Edit/edit-supplier/edit-sup
     DataTablesModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
