@@ -79,8 +79,13 @@
       </div>
     </form>
 
-    <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+    <div class="py-3 alert alert-success" *ngIf="isSuccessful">
+     <a> Your registration is successful!</a>
     </div>
+    <div class="form-group py-3" *ngIf="isSuccessful">
+      <button class="btn btn-primary btn-block" href="/login" routerLink="/login">Sign In</button>
+    </div>
+
+    <a class="py-5 bg-img-text-black"></a>
   </div>
 </div>
